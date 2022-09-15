@@ -19,7 +19,7 @@ Note: Setting .net core up in Linux can be a pain (I was using Ubuntu 20.04.4). 
 
 
 ### Additional tests I'd include
-- Expanding the these initial test to cover all fields returned for countries.
+- Expanding the initial test to cover all fields returned for countries.
 - Expanding out the tests written to cover the remaining queries in a similar fashion.
 - Running static analysis tools against the schema (eg. something along [these lines](https://github.com/cjoudrey/graphql-schema-linter))
-- Additional tests for any consumers of the API to validate and intergrations. These could either be PACT style tests or proper integration style tests where we have the consumer hitting the GraphQL endpoint. 
+- Additional tests for any consumers of the API to validate any integrations. These could either be PACT style tests or proper integration style tests where we have the consumer hitting the GraphQL endpoint. 
