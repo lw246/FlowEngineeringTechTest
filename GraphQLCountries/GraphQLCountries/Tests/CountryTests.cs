@@ -2,7 +2,6 @@
 using GraphQL;
 using GraphQL.Client.Http;
 using GraphQL.Client.Serializer.Newtonsoft;
-using GraphQLCountries.Models;
 using GraphQLCountries.Models.Responses;
 
 namespace GraphQLCountries.Tests
@@ -31,18 +30,17 @@ namespace GraphQLCountries.Tests
 			{
 				Query = @"
 				{
-					country(code: ""GB"")
-				{
-				code
-				currency
-				}
-			}"
+					country(code: ""GB"") {
+						code
+						currency
+					}
+				}"
 			};
 
 			var response = await graphQlClient.SendQueryAsync<CountryResponse>(request);
 			
 			Assert.IsNotNull(response.Data.Country);
-			response.Data.Country.Code.Should().Be("GB");
+			response.Data.Country?.Code.Should().Be("GB");
 		}
 
 		[Test]
@@ -52,12 +50,11 @@ namespace GraphQLCountries.Tests
 			{
 				Query = @"
 				{
-					country(code: ""XX"")
-				{
-				code
-				currency
-			}
-			}"
+					country(code: ""XX"") {
+						code
+						currency
+					}	
+				}"
 			};
 
 			var response = await graphQlClient.SendQueryAsync<CountryResponse>(request);

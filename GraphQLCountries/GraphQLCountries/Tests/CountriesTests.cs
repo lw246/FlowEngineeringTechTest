@@ -2,7 +2,6 @@
 using GraphQL;
 using GraphQL.Client.Http;
 using GraphQL.Client.Serializer.Newtonsoft;
-using GraphQLCountries.Models;
 using GraphQLCountries.Models.Responses;
 
 namespace GraphQLCountries.Tests
@@ -49,9 +48,8 @@ namespace GraphQLCountries.Tests
 			{
 				Query = @"
 				{
-					countries(filter:
-					{ code:
-						{ne: ""GB""}
+					countries(filter: { 
+						code: { ne: ""GB"" }
 					}) 
 					{
 						code
@@ -71,9 +69,8 @@ namespace GraphQLCountries.Tests
 			{
 				Query = @"
 				{
-					countries(filter:
-					{ currency:
-						{ne: ""GBP""}
+					countries(filter: {
+						currency: { ne: ""GBP"" }
 					}) 
 					{
 						code
@@ -95,9 +92,8 @@ namespace GraphQLCountries.Tests
 			{
 				Query = @"
 				{
-					countries(filter:
-					{ continent: 
-						{ ne: ""EU"" }
+					countries(filter: {
+						continent: { ne: ""EU"" }
 					}) 
 					{
 						code
