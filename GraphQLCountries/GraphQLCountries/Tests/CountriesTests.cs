@@ -32,6 +32,7 @@ namespace GraphQLCountries.Tests
 				{
 					countries {
 						code
+						name
 					}
 				}"
 			};
@@ -39,6 +40,7 @@ namespace GraphQLCountries.Tests
 			var response = await graphQlClient.SendQueryAsync<CountriesResponse>(request);
 
 			response.Data.Countries.Should().AllSatisfy(c => c.Code.Should().NotBeNull());
+			response.Data.Countries.Should().AllSatisfy(c => c.Name.Should().NotBeNull());
 		}
 
 		[Test]
@@ -104,6 +106,7 @@ namespace GraphQLCountries.Tests
 
 			var response = await graphQlClient.SendQueryAsync<CountriesResponse>(request);
 
+			response.Data.Countries.Should().HaveCountGreaterThanOrEqualTo(1);
 			response.Data.Countries.Should().NotContain(c => c.Code == "GB");
 			response.Data.Countries.Should().NotContain(c => c.Continent!.Code == "EU");
 		}
