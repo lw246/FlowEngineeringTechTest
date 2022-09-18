@@ -12,7 +12,7 @@ Pre-requisites:
 **Note:** Setting up .net core in Linux can sometimes be a pain (I was using Ubuntu 20.04.4). The commands listed below, found in "Scenario 2" [here](https://github.com/dotnet/core/issues/7699) worked for me.
 
 `wget https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb`
- `sudo dpkg -i packages-microsoft-prod.deb`
+`sudo dpkg -i packages-microsoft-prod.deb`
 `rm packages-microsoft-prod.deb`
 `sudo apt install dotnet-sdk-6.0`
 
